@@ -1,0 +1,18 @@
+.course-content {
+	ul.ctopics {
+		li.section.main {
+			.content {
+				margin: 0 !important;
+				.toggle {
+					border-radius: 1px;
+				}
+			}
+		}
+	}
+}
+
+
+//to hide topics in left menu for this course format....
+.format-topcoll #nav-drawer .list-group:nth-child(1) .list-group-item:nth-child(n+5) {
+	//display none
+}

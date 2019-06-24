@@ -1,0 +1,42 @@
+.course_category_tree {
+	border: 1px solid rgba(0,0,0,.125);
+    padding: 17px;
+    position: relative;
+    .collapseexpand {
+	    position: absolute;
+	    right: 15px;
+	    top: 8px;
+	}
+    .category>.content {
+	    padding-left: 35px;
+	}
+	.coursebox {
+	    border-left: 2px solid #66A8D8;
+	    margin-bottom: 0.3rem;
+	    &>.info{ 
+	    	overflow: hidden;
+	    	&>.coursename a {
+		    	padding-left: 15px;
+		    	background-image: none;
+		    	font-size: 1rem;
+			    font-weight: 600;
+		    }
+		}
+	    .enrolmenticons {
+		    display: none;
+		}
+	}
+    .category>.info {
+	    padding: .5rem;
+	    border-left: 2px solid #005b94;
+	    margin-bottom: 0.3rem;
+	    &>.categoryname {
+		    font-size: 1rem;
+		    font-weight: 600;
+		    padding-left: 25px;
+		}
+	}
+	.courses .coursebox.even {
+		background-color: transparent;
+	}
+}

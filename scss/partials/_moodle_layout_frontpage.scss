@@ -1,0 +1,37 @@
+.pagelayout-frontpage {
+    header#page-header {
+        //min-height: 75px;
+        height: 15px;
+    }
+    .context-header-settings-menu {
+        //position: absolute;
+        //right: 0;
+        position: absolute;
+        right: 0;
+        top: -38px;
+        margin: 0;
+    }
+    #region-main {
+        border: 0;
+        padding: 0;
+        background-color: transparent;
+        margin-top: -1px;
+        @media all and (min-width:1199.98px) { //This is where the boost theme sets a breakpoint for columns
+            padding: 0 25px 0 0;
+        }
+        .buttons {
+            margin-bottom: 1.5rem!important;
+        }
+        /*.main-row {
+            display: flex;
+            width: 100%;
+            .moodle-content {
+                flex: 50%;
+            }
+            .fp-mr-region-wrap {
+                flex: 50%;
+                margin-left: 25px;
+            }
+        }*/
+    }
+}
