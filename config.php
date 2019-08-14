@@ -86,3 +86,5 @@ $THEME->layouts = [
         'options' => array('nonavbar' => true, 'nocontextheader' => true),
     ),
  ];
+
+ //$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
