@@ -1,0 +1,103 @@
+.btn-toggle-drawer {
+    margin-top: 6px;
+    background-color: transparent;
+    padding: 0;
+    border: 0 none;
+    outline: 0 none !important;
+    box-shadow: none !important;
+    &:hover, &:focus, &:active, &:visited {
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+    .toggle-menu {
+        cursor: pointer;
+        display: block;
+        height: 30px;
+        padding: 0px;
+        width: 30px;
+        float: right;
+        position: relative;
+        span {
+            display: block;
+            width: 28px;
+            height: 1px;
+            background: #fff;
+            position: absolute;
+            -webkit-transition: -webkit-transform 0.3s ease-in-out, top 0.25s ease-in-out 0.3s, opacity 0.25s ease-in-out 0.3s;
+            -moz-transition: -moz-transform 0.3s ease-in-out, top 0.25s ease-in-out 0.3s, opacity 0.25s ease-in-out 0.3s;
+            transition: transform 0.3s ease-in-out, top 0.25s ease-in-out 0.3s, opacity 0.25s ease-in-out 0.3s;
+            -webkit-transform-origin: center;
+            -moz-transform-origin: center;
+            transform-origin: center;
+            &.top {
+                top: 1px;
+            }
+            &.middle {
+                top: 11px;
+            }
+            &.bottom {
+                top: 21px;
+            }
+        }
+    }
+
+    &[aria-expanded="true"] {
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 63px;
+            //background-color: #f2f2f2;
+            background-color: $cgs-light-blue;
+        }
+        span {
+            //background: #212121;
+            background: #FFFFFF;
+            -webkit-transition: -webkit-transform 0.3s ease-in-out 0.3s, top 0.25s ease-in-out, opacity 0.25s ease-in-out;
+            -moz-transition: -moz-transform 0.3s ease-in-out 0.3s, top 0.25s ease-in-out, opacity 0.25s ease-in-out;
+            transition: transform 0.3s ease-in-out 0.3s, top 0.25s ease-in-out, opacity 0.25s ease-in-out;
+            /*&.top, &.middle {
+                top: 12px;
+                -webkit-transform: rotate(135deg);
+                -moz-transform: rotate(135deg);
+                transform: rotate(135deg);
+            }
+            &.middle {
+                opacity: 0;
+            }
+            &.bottom {
+                top: 12px;
+                -webkit-transform: rotate(225deg);
+                -moz-transform: rotate(225deg);
+                transform: rotate(225deg);
+            }*/
+        }
+    }
+}
+#nav-drawer {
+    ul.cust-menu {
+        list-style: none;
+        margin: 0;
+        margin-top: 1rem;
+        padding: 0;
+        background-color: #fff;
+        li.nav-item {
+            border: 1px solid #ddd;
+            margin-bottom: -1px;
+            a.nav-link {
+                padding: 11px 1rem;
+                color: #495057;
+                &:hover {
+                    background-color: #f8f9fa;
+                }
+                &:active {
+                    color: #373a3c;
+                    background-color: #e9ecef;
+                }
+            }
+        }
+    }
+}
