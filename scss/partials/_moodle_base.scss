@@ -123,7 +123,6 @@ nav.navbar {
 }
 
 /*** Nav Drawer ***/
-
 .btn-toggle-drawer {
     margin-top: 6px;
     background-color: transparent;
@@ -203,7 +202,6 @@ nav.navbar {
         }
     }
 }
-
 #nav-drawer {
     ul.cust-menu {
         list-style: none;
@@ -225,6 +223,16 @@ nav.navbar {
                     background-color: #e9ecef;
                 }
             }
+        }
+    }
+}
+
+#page-footer {
+    background-color: #66A8D8;
+    color: #fff;
+    a {
+        .icon {
+            color: #fff;
         }
     }
 }
