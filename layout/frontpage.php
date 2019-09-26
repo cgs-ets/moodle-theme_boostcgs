@@ -64,5 +64,7 @@ $templatecontext = [
 ];
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
+$theme = theme_config::load('boostcgs');
+$templatecontext['footerhtml'] = $theme->settings->footerhtml;
 echo $OUTPUT->render_from_template('theme_boost/frontpage', $templatecontext);
 
