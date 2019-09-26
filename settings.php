@@ -107,7 +107,12 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configtextarea('theme_boostcgs/scss', get_string('rawscss', 'theme_boostcgs'),                           
         get_string('rawscss_desc', 'theme_boostcgs'), '', PARAM_RAW);                                                                  
     $setting->set_updatedcallback('theme_reset_all_caches');                                                                        
-    $page->add($setting);                                                                                                           
+    $page->add($setting);
+
+    // Custom footer HTML                                                                                   
+    $setting = new admin_setting_configtextarea('theme_boostcgs/footerhtml', get_string('footerhtml', 'theme_boostcgs'),                           
+        get_string('footerhtml_desc', 'theme_boostcgs'), '', PARAM_RAW);                                                                  
+    $page->add($setting);                                                                                                       
  
     $settings->add($page);                                                                                                     
 }

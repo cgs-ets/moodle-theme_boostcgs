@@ -52,6 +52,11 @@ $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will
 $string['rawscsspre'] = 'Raw initial SCSS';                                                                                         
 // Raw initial SCSS setting help text.                                                                                              
 $string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
+// Footer HTML setting.                                                                                                                
+$string['footerhtml'] = 'Footer HTML';                                                                                                    
+// Footer HTML setting help text.                                                                                                      
+$string['footerhtml_desc'] = 'Use this field to provide some HTML code which will be injected into the footer after the course footer and page doc link.';       
+
 // We need to include a lang string for each block region.                                                                          
 $string['region-side-pre'] = 'Right';
 $string['region-fp-main-top'] = 'Main Top';
