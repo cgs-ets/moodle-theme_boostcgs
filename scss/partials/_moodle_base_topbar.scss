@@ -54,10 +54,18 @@ nav.navbar {
         }
         .search-input-wrapper {
             margin-right: 13px;
-            @media only screen and (min-width: $show-expanded-search-width) {
+            @media only screen and (min-width: $force-expanded-search-width) {
                 width: 260px;
                 form {
                     opacity: 1;
+                }
+            }
+            @media only screen and (min-width: $show-expanded-search-width) {
+                &.expanded {
+                    width: 260px;
+                    form {
+                        opacity: 1;
+                    }
                 }
             }
             &>div {
