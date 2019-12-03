@@ -68,35 +68,19 @@
                     <div> {{{ output.region_main_settings_menu }}} </div>
                 </div>
                 {{/hasregionmainsettingsmenu}}
-                <section id="region-main" {{#hasblocks}}class="has-blocks"{{/hasblocks}}>
+                <section id="region-main" {{#hasblocks}}class="has-blocks mb-3"{{/hasblocks}} aria-label="{{#str}}content{{/str}}">
 
                     {{#hasregionmainsettingsmenu}}
                         <div class="region_main_settings_menu_proxy"></div>
                     {{/hasregionmainsettingsmenu}}
-
                     {{{ output.course_content_header }}}
-
-                    {{#hasmaintopblocks}}
-                    <div class="fp-mt-region-wrap mb-4">
-                        {{{ fpmaintopblocks }}}
-                    </div>
-                    {{/hasmaintopblocks}}
-
-                    <div class="main-row">
-                        <div class="moodle-content">
-                            {{{ output.main_content }}}
-                            {{{ output.activity_navigation }}}
-                            {{{ output.course_content_footer }}}
-                        </div>
-                    </div>
-
-                    <div class="fp-mb-region-wrap mb-4">
-                        {{{ fpmainbottomblocks }}}
-                    </div>
+                    {{{ output.main_content }}}
+                    {{{ output.activity_navigation }}}
+                    {{{ output.course_content_footer }}}
 
                 </section>
                 {{#hasblocks}}
-                <section data-region="blocks-column" class="d-print-none">
+                <section data-region="blocks-column" class="d-print-none" aria-label="{{#str}}blocks{{/str}}">
                     {{{ sidepreblocks }}}
                 </section>
                 {{/hasblocks}}
