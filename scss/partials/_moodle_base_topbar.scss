@@ -113,3 +113,25 @@ nav.navbar {
         display: none;
     }
 }
+
+#page-header {
+    .page-context-header {
+        margin-right: 185px;
+    }
+    .btn-turnediting {
+        button {
+            padding: 4px 15px 4px 14px;
+            position: absolute;
+            top: 20px;
+            right: 75px;
+        }
+    }
+    .btn-turneditingon {
+        button::before {
+            content: "\f040";
+            font-family: "FontAwesome";
+            font-size: 16px;
+            margin-right: 6px;
+        }
+    }
+}
