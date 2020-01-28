@@ -27,7 +27,7 @@ define(['jquery', 'core/log', 'core/ajax'],
             // Private functions.
             var init = function (user_id) {
                 $(".popover-region-toggle.nav-link").click(function () {
-                    
+                    Log.debug('theme_boostcgs: reading all notifications');
                     Ajax.call([{
                             methodname: 'core_message_mark_all_notifications_as_read',
                             args: {useridto: user_id},
