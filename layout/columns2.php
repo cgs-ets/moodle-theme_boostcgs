@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * A front page layout for the cgs boost child theme.
+ * A two column layout for the boost theme.
  *
- * @package   theme_boostcgs
- * @copyright 2019 Michael Vangelovski, Canberra Grammar School <michael.vangelovski@cgs.act.edu.au>
+ * @package   theme_boost
+ * @copyright 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -37,24 +37,14 @@ if ($navdraweropen) {
     $extraclasses[] = 'drawer-open-left';
 }
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
-
-//$mainrightblockshtml = $OUTPUT->blocks('fp-main-right');
-//$hasmainrightblocks = strpos($mainrightblockshtml, 'data-block=') !== false;
-$maintopblockshtml = $OUTPUT->blocks('fp-main-top');
-$hasmaintopblocks = strpos($maintopblockshtml, 'data-block=') !== false;
-$mainbottomblockshtml = $OUTPUT->blocks('fp-main-bottom');
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
-
-$regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+$buildregionmainsettings = !$PAGE->include_region_main_settings_in_header_actions();
+// If the settings menu will be included in the header then don't add it here.
+$regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settings_menu() : false;
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
-    //'fpmainrightblocks' => $mainrightblockshtml,
-    //'hasmainrightblocks' => $hasmainrightblocks,
-    'fpmaintopblocks' => $maintopblockshtml,
-    'hasmaintopblocks' => $hasmaintopblocks,
-    'fpmainbottomblocks' => $mainbottomblockshtml,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
     'bodyattributes' => $bodyattributes,
@@ -64,8 +54,8 @@ $templatecontext = [
     'user_id' => (int)$USER->id // To use in notification read all.
 ];
 
-$templatecontext['flatnavigation'] = $PAGE->flatnav;
-$theme = theme_config::load('boostcgs');
-$templatecontext['footerhtml'] = $theme->settings->footerhtml;
-echo $OUTPUT->render_from_template('theme_boost/frontpage', $templatecontext);
+$nav = $PAGE->flatnav;
+$templatecontext['flatnavigation'] = $nav;
+$templatecontext['firstcollectionlabel'] = $nav->get_collectionlabel();
+echo $OUTPUT->render_from_template('theme_boost/columns2', $templatecontext);
 

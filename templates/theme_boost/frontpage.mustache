@@ -115,4 +115,7 @@ require(['theme_boost/loader']);
 require(['theme_boost/drawer'], function(mod) {
     mod.init();
 });
+require(['theme_boostcgs/mark_notifications_as_read'], function(mod) {
+ mod.init({{user_id}});
+});
 {{/js}}
