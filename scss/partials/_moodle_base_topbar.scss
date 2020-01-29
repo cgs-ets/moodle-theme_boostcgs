@@ -25,6 +25,9 @@ nav.navbar {
 		margin: 0;
 		.logo img {
 		    max-height: 65px;
+            @media only screen and (min-width: $show-cgs-connect-width) {
+                width: 135px;
+            }
 		}
 		.site-name {
 		    display: none !important;
