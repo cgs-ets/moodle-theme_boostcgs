@@ -21,28 +21,17 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-define(['jquery', 'core/log', 'core/ajax'],
-        function ($, Log, Ajax) {
-
-            // Private functions.
+define(['jquery', 'core/log', 'message_popup/notification_repository'],
+        function ($, Log, NotificationRepo) {
             var init = function (user_id) {
-                $(".popover-region-toggle.nav-link").click(function () {
-                    Log.debug('theme_boostcgs: reading all notifications');
-                    Ajax.call([{
-                            methodname: 'core_message_mark_all_notifications_as_read',
-                            args: {useridto: user_id},
-                            done: function () { //response
-                                Log.debug('theme_boostcgs: mark_all_notifications_as_read successful');
-                            },
-                            fail: function (reason) {
-                                Log.error('theme_boostcgs: unable to mark messages as read.');
-                                Log.debug(reason);
-                            }
-                        }]);
+                
+                $("div.popover-region-toggle.nav-link").click(function () {
+                    Log.debug('theme_boostcgs: reading all notifications');         
+                    return NotificationRepo.markAllAsRead({useridto: user_id}).then(function() {
+                         $('div.count-container').addClass('hidden');
+                    });
                 });
             };
-
-            // Public functions.
             return {
                 init: function (user_id) {
                     init(user_id);
