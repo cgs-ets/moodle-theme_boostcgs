@@ -43,10 +43,64 @@ class core_renderer extends \core_renderer {
             $url->param('edit', 'off');
             $editstring = get_string('turneditingoff');
         } else {
-        	$class = 'btn-turnediting btn-turneditingon';
+            $class = 'btn-turnediting btn-turneditingon';
             $url->param('edit', 'on');
             $editstring = get_string('turneditingon');
         }
         return $this->single_button($url, $editstring, 'post', ['class' => $class]);
     }
+
+    /**
+     * Wrapper for header elements.
+     *
+     * @return string HTML to display the main header.
+     */
+    public function full_header() {
+        global $PAGE, $USER, $CFG, $DB;
+
+        if ($PAGE->include_region_main_settings_in_header_actions() && !$PAGE->blocks->is_block_present('settings')) {
+            // Only include the region main settings if the page has requested it and it doesn't already have
+            // the settings block on it. The region main settings are included in the settings block and
+            // duplicating the content causes behat failures.
+            $PAGE->add_header_action(html_writer::div(
+                $this->region_main_settings_menu(),
+                'd-print-none',
+                ['id' => 'region-main-settings-menu']
+            ));
+        }
+
+        $profileuser = '';
+       
+        if ($PAGE->pagetype === "course-view-topics") {
+           $profileuser = $DB->get_record('user', ['id' => $PAGE->url->get_param('id')]);
+           profile_load_custom_fields($profileuser);
+        }
+        
+        $studentdashboardurl = '';
+       
+        if (isset($profileuser->username)) {
+            $studentdashboardurl = get_string('studentdashboardurl', 'theme_boostcgs'). $profileuser->username;
+        }
+       
+        $header = new \stdClass();
+        $header->settingsmenu = $this->context_header_settings_menu();
+        $header->contextheader = $this->context_header();
+        $header->hasnavbar = empty($PAGE->layout_options['nonavbar']);
+        $header->navbar = $this->navbar();
+        $header->pageheadingbutton = $this->page_heading_button();
+        $header->courseheader = $this->course_header();
+        $header->headeractions = $PAGE->get_header_actions();
+
+        if ($PAGE->pagetype == "course-view-topics" && (strpos(strtolower($USER->profile['CampusRoles']), 'staff'))
+                && strpos(strtolower($profileuser->profile['CampusRoles']), 'students')) {
+            $header->showstudentdashboard = 1;
+        }
+       
+        $header->studentdahsboard = get_string('studentdashboard', 'theme_boostcgs');
+        $header->studentdahsboardurl = $studentdashboardurl;
+      
+        return $this->render_from_template('theme_boost/full_header', $header);
+    }
+    
+    
 }

@@ -67,3 +67,8 @@ $string['region-fp-main-bottom'] = 'Main Bottom';
 $string['loginbackgroundimage'] = 'Login page background image';                                                                    
 // Background image for login page.                                                                                                 
 $string['loginbackgroundimage_desc'] = 'An image that will be stretched to fill the background of the login page.';
+
+// Student Dashboard.
+$string['studentdashboard'] = 'Dashboard';
+$string['studentdashboard_desc'] = 'Set student dashboard URL';
+$string['studentdashboardurl'] = 'http://cgsrh01vmgt001/ReportServer?/Dash/Student_Dashboard_by_ID_with_Subs&rs:ParameterLanguage=&rc:Parameters=Collapsed&rc:Toolbar=False&StudentID=';
