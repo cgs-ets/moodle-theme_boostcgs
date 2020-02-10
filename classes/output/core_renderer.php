@@ -58,7 +58,7 @@ class core_renderer extends \core_renderer {
     public function full_header() {
         global $PAGE, $DB, $USER;
         
-        $header = new stdClass();
+        $header = new \stdClass();
         $header->settingsmenu = $this->context_header_settings_menu();
         $header->contextheader = $this->context_header();
         $header->hasnavbar = empty($PAGE->layout_options['nonavbar']);
@@ -67,7 +67,7 @@ class core_renderer extends \core_renderer {
         $header->courseheader = $this->course_header();
         
         $profileuser = '';
-        if ($PAGE->pagetype === "course-view-topics") {
+        if ($PAGE->pagetype === "course-view-tiles") {
            $profileuser = $DB->get_record('user', ['id' => $PAGE->url->get_param('id')]);
            profile_load_custom_fields($profileuser);
         }
@@ -75,7 +75,7 @@ class core_renderer extends \core_renderer {
             $header->studentdahsboard = get_string('studentdashboard', 'theme_boostcgs');
             $header->studentdahsboardurl = get_string('studentdashboardurl', 'theme_boostcgs', $profileuser->username);
         }
-        if ($PAGE->pagetype == "course-view-topics" && (strpos(strtolower($USER->profile['CampusRoles']), 'staff'))
+        if ($PAGE->pagetype == "course-view-tiles" && (strpos(strtolower($USER->profile['CampusRoles']), 'staff'))
                 && strpos(strtolower($profileuser->profile['CampusRoles']), 'students')) {
             $header->showstudentdashboard = 1;
         }
