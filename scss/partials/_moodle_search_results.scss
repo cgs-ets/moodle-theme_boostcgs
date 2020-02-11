@@ -10,18 +10,22 @@
 		.btn-small {
 			padding: 3px 7px;
 		}
-		.icon {
-		    height: 30px;
-		    width: 30px;
-		    margin-left: -55px;
+		.icon-wrap {
+			display: block;
+			margin-left: -51px;
 		    position: absolute;
 		    z-index: 100;
 		    background-color: #fff;
 		    border-radius: 50%;
-		    border: 0px solid #000;
 		    padding: 6px;
 		    margin-top: -4px;
 		    box-shadow: 1px 3px 7px 1px rgba(0,0,0,0.4);
+		}
+		.icon {
+			width: 25px;
+			height: 25px;
+		    margin: 0;
+    		display: block;
 		}
 	}
 	.mform {
