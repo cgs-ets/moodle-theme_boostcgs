@@ -116,8 +116,8 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     // Student Dashboard URL Setting.
-    $setting = new admin_setting_configtext('theme_boostcgs/studentdashboardURL', get_string('studentdashboard', 'theme_boostcgs'),
-            get_string('studentdashboard_desc', 'theme_boostcgs').'', PARAM_URL);
+    $setting = new admin_setting_configtext('theme_boostcgs/studentdashboardurl', get_string('studentdashboard', 'theme_boostcgs'),
+            get_string('studentdashboard_desc', 'theme_boostcgs'), '', PARAM_URL);
     $page->add($setting);
 
     $settings->add($page);

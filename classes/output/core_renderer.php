@@ -73,7 +73,9 @@ class core_renderer extends \core_renderer {
         }
         if (isset($profileuser->username)) {
             $header->studentdahsboard = get_string('studentdashboard', 'theme_boostcgs');
-            $header->studentdahsboardurl = get_string('studentdashboardurl', 'theme_boostcgs', $profileuser->username);
+            $theme = theme_config::load('boostcgs');
+            $url = str_replace('[username]', $profileuser->username, $theme->settings->studentdashboardurl);
+            $header->studentdahsboardurl = $url;
         }
         if ($PAGE->pagetype == "course-view-tiles" && (strpos(strtolower($USER->profile['CampusRoles']), 'staff'))
                 && strpos(strtolower($profileuser->profile['CampusRoles']), 'students')) {
