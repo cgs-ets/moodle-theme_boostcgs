@@ -1,6 +1,32 @@
-.search-results {
-	margin-top: 35px;
-	.btn-small {
-		padding: 3px 7px;
+#page-search-index {
+	#region-main-box {
+	    padding: 0 35px;
+	}
+	#region-main {
+	    padding: 2rem;
+	}
+	.search-results {
+		margin-top: 35px;
+		.btn-small {
+			padding: 3px 7px;
+		}
+		.icon {
+		    height: 30px;
+		    width: 30px;
+		    margin-left: -55px;
+		    position: absolute;
+		    z-index: 100;
+		    background-color: #fff;
+		    border-radius: 50%;
+		    border: 0px solid #000;
+		    padding: 6px;
+		    margin-top: -4px;
+		    box-shadow: 1px 3px 7px 1px rgba(0,0,0,0.4);
+		}
+	}
+	.mform {
+		padding: 20px;
+    	background-color: #f0f2f4;
+    	border-radius: 7px;
 	}
 }
