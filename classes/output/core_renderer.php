@@ -83,8 +83,6 @@ class core_renderer extends \core_renderer {
         }
         
         return $this->render_from_template('theme_boost/full_header', $header);
-        
-      
     }
     
     
