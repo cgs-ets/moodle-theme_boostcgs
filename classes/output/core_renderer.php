@@ -73,7 +73,7 @@ class core_renderer extends \core_renderer {
         }
         if (isset($profileuser->username)) {
             $header->studentdahsboard = get_string('studentdashboard', 'theme_boostcgs');
-            $theme = theme_config::load('boostcgs');
+            $theme = \theme_config::load('boostcgs');
             $url = str_replace('[username]', $profileuser->username, $theme->settings->studentdashboardurl);
             $header->studentdahsboardurl = $url;
         }
