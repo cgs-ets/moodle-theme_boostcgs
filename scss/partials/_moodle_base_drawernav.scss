@@ -106,11 +106,11 @@
  * Hide by default on every load 
  * Only show on mobile if open-mobile class is added.
  */ 
-/*@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
     #nav-drawer {
         left: -305px;
     }
     #nav-drawer.open-mobile {
         left: 0px;
     }
-}*/
+}
