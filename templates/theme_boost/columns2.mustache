@@ -99,10 +99,10 @@ M.util.js_pending('theme_boost/loader');
 require(['theme_boost/loader'], function() {
   M.util.js_complete('theme_boost/loader');
 });
-M.util.js_pending('theme_boostcgs/drawercgs');
-require(['theme_boostcgs/drawercgs'], function(mod) {
+M.util.js_pending('theme_boostcgs/drawer');
+require(['theme_boostcgs/drawer'], function(mod) {
     mod.init();
-  M.util.js_complete('theme_boostcgs/drawercgs');
+  M.util.js_complete('theme_boostcgs/drawer');
 });
 require(['theme_boostcgs/mark_notifications_as_read'], function(mod) {
  mod.init({{user_id}});
