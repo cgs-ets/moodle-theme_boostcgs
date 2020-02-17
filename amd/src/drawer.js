@@ -16,8 +16,9 @@
 /**
  * Contain the logic for a drawer.
  *
- * @package    theme_boost
+ * @package    theme_boostcgs
  * @copyright  2016 Damyon Wiese
+ * @modified   2020 Michael Vangelovski
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 define(['jquery', 'core/custom_interaction_events', 'core/log', 'core/pubsub'],
@@ -56,9 +57,6 @@ define(['jquery', 'core/custom_interaction_events', 'core/log', 'core/pubsub'],
             var side = trigger.attr('data-side');
             var body = $(SELECTORS.BODY);
             var preference = trigger.attr('data-preference');
-            if (small) {
-                M.util.set_user_preference(preference, 'false');
-            }
 
             drawer.on('mousewheel DOMMouseScroll', this.preventPageScroll);
 
@@ -89,6 +87,7 @@ define(['jquery', 'core/custom_interaction_events', 'core/log', 'core/pubsub'],
             body.removeClass('drawer-open-' + side);
             drawer.attr('aria-hidden', 'true');
             drawer.addClass('closed');
+            drawer.removeClass('open-mobile');
             if (!small) {
                 M.util.set_user_preference(preference, 'false');
             }
@@ -108,10 +107,6 @@ define(['jquery', 'core/custom_interaction_events', 'core/log', 'core/pubsub'],
         var body = $(SELECTORS.BODY);
         var side = trigger.attr('data-side');
         var preference = trigger.attr('data-preference');
-        if (small) {
-            M.util.set_user_preference(preference, 'false');
-        }
-
         body.addClass('drawer-ease');
         var open = trigger.attr('aria-expanded') == 'true';
         if (!open) {
@@ -121,6 +116,7 @@ define(['jquery', 'core/custom_interaction_events', 'core/log', 'core/pubsub'],
             drawer.focus();
             body.addClass('drawer-open-' + side);
             drawer.removeClass('closed');
+            drawer.addClass('open-mobile');
             if (!small) {
                 M.util.set_user_preference(preference, 'true');
             }
@@ -130,6 +126,7 @@ define(['jquery', 'core/custom_interaction_events', 'core/log', 'core/pubsub'],
             trigger.attr('aria-expanded', 'false');
             drawer.attr('aria-hidden', 'true');
             drawer.addClass('closed');
+            drawer.removeClass('open-mobile');
             if (!small) {
                 M.util.set_user_preference(preference, 'false');
             }
