@@ -40,7 +40,7 @@ define(['jquery', 'core/custom_interaction_events', 'core/log', 'core/pubsub'],
      *
      * @param {object} root The root jQuery element for the modal
      */
-    var Drawer = function() {
+    var DrawerCGS = function() {
 
         if (!$(SELECTORS.TOGGLE_REGION).length) {
             Log.debug('Page is missing a drawer region');
@@ -73,7 +73,7 @@ define(['jquery', 'core/custom_interaction_events', 'core/log', 'core/pubsub'],
         }
     };
 
-    Drawer.prototype.closeAll = function() {
+    DrawerCGS.prototype.closeAll = function() {
         $(SELECTORS.TOGGLE_REGION).each(function(index, ele) {
             var trigger = $(ele).find(SELECTORS.TOGGLE_ACTION);
             var side = trigger.attr('data-side');
@@ -99,7 +99,7 @@ define(['jquery', 'core/custom_interaction_events', 'core/log', 'core/pubsub'],
      * @method toggleDrawer
      * @param {Event} e
      */
-    Drawer.prototype.toggleDrawer = function(e) {
+    DrawerCGS.prototype.toggleDrawer = function(e) {
         var trigger = $(e.target).closest('[data-action=toggle-drawer]');
         var drawerid = trigger.attr('aria-controls');
         var drawer = $(document.getElementById(drawerid));
@@ -143,7 +143,7 @@ define(['jquery', 'core/custom_interaction_events', 'core/log', 'core/pubsub'],
      * @method preventPageScroll
      * @param  {Event} e
      */
-    Drawer.prototype.preventPageScroll = function(e) {
+    DrawerCGS.prototype.preventPageScroll = function(e) {
         var delta = e.wheelDelta || (e.originalEvent && e.originalEvent.wheelDelta) || -e.originalEvent.detail,
             bottomOverflow = (this.scrollTop + $(this).outerHeight() - this.scrollHeight) >= 0,
             topOverflow = this.scrollTop <= 0;
@@ -158,7 +158,7 @@ define(['jquery', 'core/custom_interaction_events', 'core/log', 'core/pubsub'],
      *
      * @method registerEventListeners
      */
-    Drawer.prototype.registerEventListeners = function() {
+    DrawerCGS.prototype.registerEventListeners = function() {
 
         $(SELECTORS.TOGGLE_ACTION).each(function(index, element) {
             CustomEvents.define($(element), [CustomEvents.events.activate]);
@@ -185,7 +185,7 @@ define(['jquery', 'core/custom_interaction_events', 'core/log', 'core/pubsub'],
 
     return {
         'init': function() {
-            return new Drawer();
+            return new DrawerCGS();
         }
     };
 });
