@@ -49,7 +49,7 @@ $templatecontext = [
     'navdraweropen' => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'user_id' => (int)$USER->id // To use in notification read all.
+    'user_id' => (int) $USER->id // To use in notification read all.
 ];
 
 $nav = $PAGE->flatnav;

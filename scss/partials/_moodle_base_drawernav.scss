@@ -20,7 +20,7 @@
         span {
             display: block;
             width: 28px;
-            height: 1px;
+            height: 3px;
             background: #fff;
             position: absolute;
             -webkit-transition: -webkit-transform 0.3s ease-in-out, top 0.25s ease-in-out 0.3s, opacity 0.25s ease-in-out 0.3s;
@@ -99,5 +99,18 @@
                 }
             }
         }
+    }
+}
+
+/* Mobile Nav
+ * Hide by default on every load 
+ * Only show on mobile if open-mobile class is added.
+ */ 
+@media only screen and (max-width: 767px) {
+    #nav-drawer {
+        left: -305px;
+    }
+    #nav-drawer.open-mobile {
+        left: 0px;
     }
 }
