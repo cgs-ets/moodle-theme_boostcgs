@@ -13,11 +13,16 @@
         padding: 0;
         background-color: transparent;
         margin-top: -1px;
-        @media all and (min-width:1199.98px) { // This is where the boost theme sets a breakpoint for columns.
-            padding: 0 25px 0 0;
-        }
         .buttons {
             margin-bottom: 1.5rem!important;
+        }
+    }
+    @media all and (min-width:1199.98px) { // This is where the boost theme sets a breakpoint for columns.
+        #region-main {
+            padding: 0 25px 0 0;
+        }
+        .context-header-settings-menu {
+            top: -38px;
         }
     }
 }
