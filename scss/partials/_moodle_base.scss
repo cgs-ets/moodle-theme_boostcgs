@@ -17,3 +17,29 @@ h1, h2, h3, h4, h5 {
 .btn-small {
 	font-size: small;
 }
+$breakpoint-browser-height: 519px;
+
+@media(max-height: $breakpoint-browser-height){
+
+   .options{
+     height: 330px;
+    }
+    .alloptions{
+      height: 330px;
+      border-bottom: 1px solid #bbb;
+    }
+
+    .instruction{
+        height: 330px;
+        border-bottom: 1px solid #bbb;
+
+    }
+}
+
+$breakpoint-browser-width:575px;
+@media(max-width: $breakpoint-browser-width ){
+   .options,  .alloptions, .instruction{
+            height:auto;
+            width:auto;
+    }
+}
