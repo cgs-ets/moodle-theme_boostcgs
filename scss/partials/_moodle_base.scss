@@ -43,3 +43,26 @@ $breakpoint-browser-width:575px;
             width:auto;
     }
 }
+
+.is-uat nav.fixed-top:after {
+    content: "TEST SERVER";
+    position: absolute;
+    left: 0;
+    background-color: deeppink;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    padding: 10px;
+    font-size: 30px;
+    color: #000;
+    opacity: 0.8;
+    font-weight: 900;
+    z-index: -1;
+    text-align: center;
+}
+.is-uat nav.fixed-top > * {
+    z-index: 10;
+}
+.is-uat .btn-toggle-drawer[aria-expanded="true"]:before {
+    background-color: transparent;
+}

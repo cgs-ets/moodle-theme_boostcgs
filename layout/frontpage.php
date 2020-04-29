@@ -36,22 +36,25 @@ $extraclasses = [];
 if ($navdraweropen) {
     $extraclasses[] = 'drawer-open-left';
 }
+$theme = \theme_config::load('boostcgs');
+if ($theme->settings->isuat) {
+    $extraclasses[] = 'is-uat';
+}
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
-
-//$mainrightblockshtml = $OUTPUT->blocks('fp-main-right');
-//$hasmainrightblocks = strpos($mainrightblockshtml, 'data-block=') !== false;
 $maintopblockshtml = $OUTPUT->blocks('fp-main-top');
 $hasmaintopblocks = strpos($maintopblockshtml, 'data-block=') !== false;
 $mainbottomblockshtml = $OUTPUT->blocks('fp-main-bottom');
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
+$theme = \theme_config::load('boostcgs');
+if ($theme->settings->isuat) {
+    $extraclasses[] = 'is-uat';
+}
 
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
-    //'fpmainrightblocks' => $mainrightblockshtml,
-    //'hasmainrightblocks' => $hasmainrightblocks,
     'fpmaintopblocks' => $maintopblockshtml,
     'hasmaintopblocks' => $hasmaintopblocks,
     'fpmainbottomblocks' => $mainbottomblockshtml,
@@ -61,7 +64,7 @@ $templatecontext = [
     'navdraweropen' => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'user_id' => (int)$USER->id // To use in notification read all.
+    'user_id' => (int)$USER->id, // To use in notification read all.
 ];
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;

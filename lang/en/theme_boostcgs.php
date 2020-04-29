@@ -56,18 +56,15 @@ $string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS co
 $string['footerhtml'] = 'Footer HTML';                                                                                                    
 // Footer HTML setting help text.                                                                                                      
 $string['footerhtml_desc'] = 'Use this field to provide some HTML code which will be injected into the footer after the course footer and page doc link.';       
-
 // We need to include a lang string for each block region.                                                                          
 $string['region-side-pre'] = 'Right';
 $string['region-fp-main-top'] = 'Main Top';
 $string['region-fp-main-bottom'] = 'Main Bottom';
-//$string['region-fp-main-right'] = 'Main Right';
-
 // Background image for login page.                                                                                                 
 $string['loginbackgroundimage'] = 'Login page background image';                                                                    
 // Background image for login page.                                                                                                 
 $string['loginbackgroundimage_desc'] = 'An image that will be stretched to fill the background of the login page.';
-
-// Student Dashboard.
 $string['studentdashboard'] = 'Dashboard';
 $string['studentdashboard_desc'] = 'Set student dashboard URL';
+$string['isuat'] = 'Is UAT?';
+

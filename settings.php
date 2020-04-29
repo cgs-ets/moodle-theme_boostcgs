@@ -120,5 +120,11 @@ if ($ADMIN->fulltree) {
             get_string('studentdashboard_desc', 'theme_boostcgs'), '', PARAM_RAW);
     $page->add($setting);
 
+    // Is this UAT?
+    $name = 'theme_boostcgs/isuat';
+    $title = get_string('isuat', 'theme_boostcgs');
+    $setting = new admin_setting_configcheckbox($name, $title, '', 0);
+    $page->add($setting);
+
     $settings->add($page);
 }
