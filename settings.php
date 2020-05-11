@@ -120,10 +120,24 @@ if ($ADMIN->fulltree) {
             get_string('studentdashboard_desc', 'theme_boostcgs'), '', PARAM_RAW);
     $page->add($setting);
 
-    // Is this UAT?
-    $name = 'theme_boostcgs/isuat';
-    $title = get_string('isuat', 'theme_boostcgs');
+    // Server environment. default production.
+    $name = 'theme_boostcgs/environment';
+    $title = get_string('environment', 'theme_boostcgs');
+    $desc = get_string('environment_desc', 'theme_boostcgs');
+    $setting = new admin_setting_configtext($name, $title, '', 'production', PARAM_RAW);
+    $page->add($setting);
+
+    // Show environment bar.
+    $name = 'theme_boostcgs/showenvbar';
+    $title = get_string('showenvbar', 'theme_boostcgs');
     $setting = new admin_setting_configcheckbox($name, $title, '', 0);
+    $page->add($setting);
+
+    // Server environment color. default is nothing which means no overlay.
+    $name = 'theme_boostcgs/environmentcolor';
+    $title = get_string('environmentcolor', 'theme_boostcgs');
+    $desc = get_string('environmentcolor_desc', 'theme_boostcgs');
+    $setting = new admin_setting_configtext($name, $title, $desc, '', PARAM_RAW);
     $page->add($setting);
 
     $settings->add($page);

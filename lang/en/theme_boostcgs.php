@@ -66,5 +66,9 @@ $string['loginbackgroundimage'] = 'Login page background image';
 $string['loginbackgroundimage_desc'] = 'An image that will be stretched to fill the background of the login page.';
 $string['studentdashboard'] = 'Dashboard';
 $string['studentdashboard_desc'] = 'Set student dashboard URL';
-$string['isuat'] = 'Is UAT?';
+$string['environment'] = 'Environment';
+$string['environment_desc'] = 'This will be added as a class to the body element.';
+$string['showenvbar'] = 'Show environment bar?';
+$string['environmentcolor'] = 'Environment colour';
+$string['environmentcolor_desc'] = 'A css color that will be added as a semi-transparent overlay over the header.';
 

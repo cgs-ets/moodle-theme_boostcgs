@@ -27,6 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
 
+$theme = \theme_config::load('boostcgs');
+
 if (isloggedin()) {
     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
 } else {
@@ -36,14 +38,15 @@ $extraclasses = [];
 if ($navdraweropen) {
     $extraclasses[] = 'drawer-open-left';
 }
-$theme = \theme_config::load('boostcgs');
-if ($theme->settings->isuat) {
-    $extraclasses[] = 'is-uat';
-}
+
+$extraclasses[] = 'env-' . $theme->settings->environment;
+$extraclasses[] = 'showenv-' . $theme->settings->showenvbar;
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+
+$nav = $PAGE->flatnav;
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
@@ -55,9 +58,12 @@ $templatecontext = [
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'user_id' => (int) $USER->id, // To use in notification read all.
+    'flatnavigation' => $nav,
+    'firstcollectionlabel' => $nav->get_collectionlabel(),
+    'showenv' => $theme->settings->showenvbar,
+    'env' => strtolower(str_replace(' ', '-', $theme->settings->environment)),
+    'envcolor' => $theme->settings->environmentcolor,
 ];
-$nav = $PAGE->flatnav;
-$templatecontext['flatnavigation'] = $nav;
-$templatecontext['firstcollectionlabel'] = $nav->get_collectionlabel();
+
 echo $OUTPUT->render_from_template('theme_boost/columns2', $templatecontext);
 

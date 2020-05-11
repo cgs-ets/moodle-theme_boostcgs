@@ -50,15 +50,17 @@
 }}
 {{> theme_boost/head }}
 
-<body {{{ bodyattributes }}}{{#isuat}}class="site-uat"{{/isuat}}>
+<body {{{ bodyattributes }}}>
 
 <div id="page-wrapper">
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{> theme_boost/navbar }}
+    {{> theme_boost/navbar }}    
+    {{#showenv}}<div class="env-navoverlay" style="background-color:{{envcolor}};">{{env}}</div>{{/showenv}}
 
     <div id="page" class="container-fluid">
+
         {{{ output.full_header }}}
 
         <div id="page-content" class="row pb-3">
