@@ -57,7 +57,7 @@ class core_renderer extends \core_renderer {
      */
     public function full_header() {
         global $PAGE, $DB, $USER;
-        
+
         $header = new \stdClass();
         $header->settingsmenu = $this->context_header_settings_menu();
         $header->contextheader = $this->context_header();
@@ -65,7 +65,7 @@ class core_renderer extends \core_renderer {
         $header->navbar = $this->navbar();
         $header->pageheadingbutton = $this->page_heading_button();
         $header->courseheader = $this->course_header();
-        
+
         $profileuser = '';
         if ($PAGE->pagetype === "course-view-tiles") {
            $profileuser = $DB->get_record('user', ['id' => $PAGE->url->get_param('id')]);
@@ -81,9 +81,8 @@ class core_renderer extends \core_renderer {
                 && strpos(strtolower($profileuser->profile['CampusRoles']), 'students')) {
             $header->showstudentdashboard = 1;
         }
-        
+
         return $this->render_from_template('theme_boost/full_header', $header);
     }
-    
-    
+
 }

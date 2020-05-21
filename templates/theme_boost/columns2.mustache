@@ -56,7 +56,7 @@
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{> theme_boost/navbar }}    
+    {{> theme_boost/navbar }}
     {{#showenv}}<div class="env-navoverlay" style="background-color:{{envcolor}};">{{env}}</div>{{/showenv}}
 
     <div id="page" class="container-fluid">
@@ -71,10 +71,7 @@
                 </div>
                 {{/hasregionmainsettingsmenu}}
                 <section id="region-main" {{#hasblocks}}class="has-blocks mb-3"{{/hasblocks}} aria-label="{{#str}}content{{/str}}">
-
-                    {{#hasregionmainsettingsmenu}}
-                        <div class="region_main_settings_menu_proxy"></div>
-                    {{/hasregionmainsettingsmenu}}
+                    <a href="#" class = "screensizecontrol" title="Resize Page"><i class="fa fa-expand img" aria-hidden="true"></i></a>
                     {{{ output.course_content_header }}}
                     {{{ output.main_content }}}
                     {{{ output.activity_navigation }}}
@@ -108,5 +105,8 @@ require(['theme_boostcgs/drawer'], function(mod) {
 });
 require(['theme_boostcgs/mark_notifications_as_read'], function(mod) {
  mod.init({{user_id}});
+});
+require(['theme_boostcgs/full_screen_control'], function(mod) {
+    mod.init();
 });
 {{/js}}

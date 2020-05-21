@@ -24,9 +24,9 @@
 define(['jquery', 'core/log', 'message_popup/notification_repository'],
         function ($, Log, NotificationRepo) {
             var init = function (user_id) {
-                
+
                 $("div.popover-region-toggle.nav-link").click(function () {
-                    Log.debug('theme_boostcgs: reading all notifications');         
+                    Log.debug('theme_boostcgs: reading all notifications');
                     return NotificationRepo.markAllAsRead({useridto: user_id}).then(function() {
                          $('div.count-container').addClass('hidden');
                     });

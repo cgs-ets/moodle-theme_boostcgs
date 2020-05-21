@@ -11,36 +11,36 @@ body {
     }
 }
 h1, h2, h3, h4, h5 {
-	font-weight: 600;
-	line-height: 1.5;
+    font-weight: 600;
+    line-height: 1.5;
 }
 .btn-small {
-	font-size: small;
+    font-size: small;
 }
 $breakpoint-browser-height: 519px;
 
 @media(max-height: $breakpoint-browser-height){
-
-   .options{
-     height: 330px;
+    
+    .options{
+        height: 330px;
     }
     .alloptions{
-      height: 330px;
-      border-bottom: 1px solid #bbb;
+        height: 330px;
+        border-bottom: 1px solid #bbb;
     }
-
+    
     .instruction{
         height: 330px;
         border-bottom: 1px solid #bbb;
-
+        
     }
 }
 
 $breakpoint-browser-width:575px;
 @media(max-width: $breakpoint-browser-width ){
-   .options,  .alloptions, .instruction{
-            height:auto;
-            width:auto;
+    .options,  .alloptions, .instruction{
+        height:auto;
+        width:auto;
     }
 }
 
@@ -60,3 +60,14 @@ $breakpoint-browser-width:575px;
     text-transform: uppercase;
     line-height: 45px;
 }
+/*Fullscreen controls*/
+a.screensizecontrol {
+    float: right;
+    display: inline-block;
+}
+section#region-main.has-blocks.fullsize,
+div#region-main-settings-menu.fullsize{
+    display: inline-block;
+    width: 100%;
+}
+
