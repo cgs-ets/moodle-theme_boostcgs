@@ -63,16 +63,28 @@ $breakpoint-browser-width:575px;
 /*Fullscreen controls*/
 a.screensizecontrol {
     float: right;
+    font-size: 22px;
     height: 24px;
-    font-size: 24px;
     width: auto;
-    padding-right: 40px;
 }
 a.screensizecontrol.inconfig {
-    padding: 0;
     display: inline-block;
-    margin-right: 0px;
     margin-left: 50px;
+    margin-right: 0px;
+    padding: 0;
+}
+a.screensizecontrol.inconfig i {
+    display: block;
+    font-size: 22px;
+}
+
+a.screensizecontrol.tileformat {
+    color: darkgrey;
+    font-size: 18px;
+    margin-right: 40px;
+    position: relative;
+    width: auto;
+    z-index: 179;
 }
 
 section#region-main.has-blocks.fullsize,
