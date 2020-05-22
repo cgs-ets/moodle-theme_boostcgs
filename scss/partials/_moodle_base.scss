@@ -63,8 +63,18 @@ $breakpoint-browser-width:575px;
 /*Fullscreen controls*/
 a.screensizecontrol {
     float: right;
-    font-weight: bold;  
+    height: 24px;
+    font-size: 24px;
+    width: auto;
+    padding-right: 40px;
 }
+a.screensizecontrol.inconfig {
+    padding: 0;
+    display: inline-block;
+    margin-right: 0px;
+    margin-left: 50px;
+}
+
 section#region-main.has-blocks.fullsize,
 div#region-main-settings-menu.fullsize{
     display: inline-block;

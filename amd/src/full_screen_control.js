@@ -32,9 +32,9 @@ define(['jquery'], function ($) {
     // Constructor.
     function FullScreenControl() {
         // For pages with actions menu
-        if ($('body').find('#region-main-settings-menu').length == 1) {
-            $("a.screensizecontrol").css("margin-right", "50px");
-        }
+//        if ($('body').find('#region-main-settings-menu').length == 1) {
+//            $("a.screensizecontrol").css("margin-right", "50px");
+//        }
         // User preference : nav bar close.
         // Keep it close when resizing.
         if($("#nav-drawer").hasClass("closed")) {
