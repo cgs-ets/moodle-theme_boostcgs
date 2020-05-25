@@ -14,7 +14,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Contain the logic  to change page size.
+ * Contains the logic  to resize pages.
  *
  * @package    theme_boostcgs
  * @copyright  2016 Damyon Wiese
@@ -37,8 +37,8 @@ define(['jquery'], function ($) {
         }
         // User preference : nav bar close.
         // Keep it close when resizing.
-        if($("#nav-drawer").hasClass("closed")) {
-             $("#nav-drawer").addClass("prefclosed");
+        if ($("#nav-drawer").hasClass("closed")) {
+            $("#nav-drawer").addClass("prefclosed");
         }
     }
 
@@ -50,6 +50,7 @@ define(['jquery'], function ($) {
 
     // Normal screen size -> Fullscreen
     FullScreenControl.prototype.fullscreenmode = function () {
+
         $("div#page-content").on("click", ".screensizecontrol", function () {
             $("section#region-main").addClass("fullsize");
             $("div#region-main-settings-menu").addClass("fullsize");
@@ -60,12 +61,13 @@ define(['jquery'], function ($) {
                 $("#nav-drawer").addClass("closed");
                 $('body').removeClass('drawer-open-left');
             }
+                $("#multi_section_tiles").addClass("fullscreenmode"); //To expand tiles to max width
         });
 
     };
     //Fullscreen -> Normal
     FullScreenControl.prototype.resize = function () {
-        $("div#page-content").on("click", ".resize", function () {
+        $("div#page-content").on("click", ".resize", function (e) {
             $("section#region-main").removeClass("fullsize");
             $("a.screensizecontrol").removeClass("resize");
             $("div#region-main-settings-menu").removeClass("fullsize");
@@ -73,6 +75,7 @@ define(['jquery'], function ($) {
 
             if (!$("#nav-drawer").hasClass("prefclosed")) {
                 $("#nav-drawer").removeClass("closed");
+                $("#multi_section_tiles").removeClass("fullscreenmode");
                 $('body').addClass('drawer-open-left');
             }
         });

@@ -78,6 +78,7 @@ a.screensizecontrol.inconfig i {
     font-size: 22px;
 }
 
+/*For tile format courses*/
 a.screensizecontrol.tileformat {
     color: darkgrey;
     font-size: 18px;
@@ -85,6 +86,10 @@ a.screensizecontrol.tileformat {
     position: relative;
     width: auto;
     z-index: 179;
+}
+
+ul#multi_section_tiles.tiles.fullscreenmode {
+    max-width: 90% !important;
 }
 
 section#region-main.has-blocks.fullsize,
