@@ -61,7 +61,11 @@ define(['jquery'], function ($) {
                 $("#nav-drawer").addClass("closed");
                 $('body').removeClass('drawer-open-left');
             }
+
+            if ($('body').find('#multi_section_tiles').length == 1) {
                 $("#multi_section_tiles").addClass("fullscreenmode"); //To expand tiles to max width
+            }
+            
         });
 
     };
