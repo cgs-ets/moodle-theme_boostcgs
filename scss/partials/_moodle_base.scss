@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5 {
 $breakpoint-browser-height: 519px;
 
 @media(max-height: $breakpoint-browser-height){
-    
+
     .options{
         height: 330px;
     }
@@ -28,11 +28,11 @@ $breakpoint-browser-height: 519px;
         height: 330px;
         border-bottom: 1px solid #bbb;
     }
-    
+
     .instruction{
         height: 330px;
         border-bottom: 1px solid #bbb;
-        
+
     }
 }
 
@@ -41,6 +41,10 @@ $breakpoint-browser-width:575px;
     .options,  .alloptions, .instruction{
         height:auto;
         width:auto;
+    }
+
+    a.screensizecontrol{
+        display:none;
     }
 }
 
@@ -60,41 +64,43 @@ $breakpoint-browser-width:575px;
     text-transform: uppercase;
     line-height: 45px;
 }
+
 /*Fullscreen controls*/
-a.screensizecontrol {
-    float: right;
-    font-size: 22px;
-    height: 24px;
-    width: auto;
-}
-a.screensizecontrol.inconfig {
-    display: inline-block;
-    margin-left: 50px;
-    margin-right: 0px;
-    padding: 0;
-}
-a.screensizecontrol.inconfig i {
-    display: block;
-    font-size: 22px;
-}
+@media(min-width: $breakpoint-browser-width){
 
-/*For tile format courses*/
-a.screensizecontrol.tileformat {
-    color: darkgrey;
-    font-size: 18px;
-    margin-right: 40px;
-    position: relative;
-    width: auto;
-    z-index: 179;
+    a.screensizecontrol {
+        float: right;
+        font-size: 22px;
+        height: 24px;
+        position: relative;
+        width: auto;
+        z-index: 1; /*For quiz pages*/
+    }
+    a.screensizecontrol.inconfig {
+        display: inline-block;
+        margin-left: 50px;
+        margin-right: 0px;
+        padding: 0;
+    }
+    a.screensizecontrol.inconfig i {
+        display: block;
+        font-size: 22px;
+    }
+    /*For tile format courses*/
+    a.screensizecontrol.tileformat {
+        color: darkgrey;
+        font-size: 18px;
+        margin-right: 40px;
+        position: relative;
+        width: auto;
+        z-index: 179;
+    }
+    ul#multi_section_tiles.tiles.fullscreenmode {
+        max-width: 90% !important;
+    }
+    section#region-main.has-blocks.fullsize,
+    div#region-main-settings-menu.fullsize{
+        display: inline-block;
+        width: 100%;
+    }
 }
-
-ul#multi_section_tiles.tiles.fullscreenmode {
-    max-width: 90% !important;
-}
-
-section#region-main.has-blocks.fullsize,
-div#region-main-settings-menu.fullsize{
-    display: inline-block;
-    width: 100%;
-}
-
