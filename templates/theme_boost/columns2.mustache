@@ -65,17 +65,15 @@
 
         <div id="page-content" class="row pb-3">
             <div id="region-main-box" class="col-12">
-
                 {{#hasregionmainsettingsmenu}}
-                <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
-                    {{#hasblocks}}
-                        <div>
-                             <a href="#" class = "screensizecontrol inconfig " title="Resize Page"><i class="fa fa-expand  img" aria-hidden="true"></i></a>
-                             {{{ output.region_main_settings_menu }}}
-                        </div>
-                    {{/hasblocks}}
-                </div>
-
+                    <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
+                            <div>
+                                {{#hasblocks}}
+                                 <a href="#" class = "screensizecontrol inconfig " title="Resize Page"><i class="fa fa-expand  img" aria-hidden="true"></i></a>
+                                {{/hasblocks}}
+                                {{{ output.region_main_settings_menu }}}
+                            </div>
+                    </div>
                 {{/hasregionmainsettingsmenu}}
                 <section id="region-main" {{#hasblocks}}class="has-blocks mb-3"{{/hasblocks}} aria-label="{{#str}}content{{/str}}">
                     {{#hasblocks}}
