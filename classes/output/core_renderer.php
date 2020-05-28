@@ -50,7 +50,6 @@ class core_renderer extends \core_renderer {
             $campusroles = strtolower($USER->profile['CampusRoles']);
 
             $roles = array(
-                'admin' => 'admin', 
                 'staff' => 'staff', 
                 'student' => 'student', 
                 'parent' => 'parent',
