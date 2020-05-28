@@ -31,6 +31,58 @@ defined('MOODLE_INTERNAL') || die;
 class core_renderer extends \core_renderer {
 
     /**
+     * Add the users capmus and role as a body class.
+     * This can be useful for displaying minor interface variances based on the users role.
+     * WARNING! NEVER depend on this for authorisation. E.g. using CSS to hide an action that a
+     * user does not have permission to do. This type of checking must be done in conjunction
+     * with server side checking.
+     *
+     * @return array. Extra classes
+     */
+    public function campusrole_classes() {
+        global $USER;
+
+        $extraclasses = array();
+
+        // First check that the CampusRoles profile field exists. This is very institution specific.
+        if(isset($USER->profile['CampusRoles'])) {
+
+            $campusroles = strtolower($USER->profile['CampusRoles']);
+
+            $roles = array(
+                'admin' => 'admin', 
+                'staff' => 'staff', 
+                'student' => 'student', 
+                'parent' => 'parent',
+            );
+            foreach ($roles as $role => $class) {
+                if (strpos($campusroles, $role) !== false) {
+                    $extraclasses[] = 'role-' . $class;
+                }
+            }
+
+            $campuses = array(
+                'early learning centre' => 'elc', 
+                'southside' => 'southside', 
+                'northside' => 'northside', 
+                'junior school' => 'junior',
+                'senior school' => 'senior',
+                'primary school' => 'primary',
+                'whole school' => 'whole',
+            );
+            foreach ($campuses as $campus => $class) {
+                if (strpos($campusroles, $campus) !== false) {
+                    $extraclasses[] = 'campus-' . $class;
+                }
+            }
+
+            $extraclasses = array_unique($extraclasses);
+        }
+
+        return $extraclasses;
+    }
+
+    /**
      * Returns HTML to display a "Turn editing on/off" button in a form.
      *
      * @param moodle_url $url The URL + params to send through when clicking the button

@@ -41,6 +41,7 @@ if ($navdraweropen) {
 
 $extraclasses[] = 'env-' . $theme->settings->environment;
 $extraclasses[] = 'showenv-' . $theme->settings->showenvbar;
+$extraclasses = array_merge($extraclasses, $OUTPUT->campusrole_classes());
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
