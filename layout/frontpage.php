@@ -41,7 +41,7 @@ if ($navdraweropen) {
 
 $extraclasses[] = 'env-' . $theme->settings->environment;
 $extraclasses[] = 'showenv-' . $theme->settings->showenvbar;
-$extraclasses = array_merge($extraclasses, $OUTPUT->campusrole_classes());
+//$extraclasses = array_merge($extraclasses, $OUTPUT->campusrole_classes());
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $maintopblockshtml = $OUTPUT->blocks('fp-main-top');
 $hasmaintopblocks = strpos($maintopblockshtml, 'data-block=') !== false;
