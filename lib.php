@@ -1,13 +1,27 @@
 <?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * @package   theme_boostcgs
+ * @copyright 2020 Michael Vangelovski, Canberra Grammar School
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
  
-// Every file should have GPL and copyright in the header - we skip it in tutorials but you should not skip it for real.
- 
-// This line protects the file from being accessed by a URL directly.                                                               
+// This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
- 
-// We will add callbacks here as we add features to our theme.
-
-
 
 function theme_boostcgs_get_main_scss_content($theme) {                                                                                
     global $CFG;                                                                                                                    
@@ -96,13 +110,7 @@ function theme_boostcgs_update_settings_images($settingname) {
  * @param moodle_page $page
  */
 function theme_boostcgs_page_init(moodle_page $page) {
-
-    // A good place to add external fonts, js and css for the theme
+    // A good place to add external fonts, js and css for the theme.
     $page->requires->css( new moodle_url('/theme/boostcgs/vendor/google-fonts/open-sans/open_sans-300.400.500.600.700.css') );
     $page->requires->css( new moodle_url('/theme/boostcgs/vendor/ionicons-2.0.1/css/ionicons.min.css') );
-    
-    //CDN
-    //$page->requires->css( new moodle_url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700') );
-    //$page->requires->css( new moodle_url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') );
-    //$page->requires->js( new moodle_url('https://unpkg.com/ionicons@4.4.4/dist/ionicons.js') );
 }

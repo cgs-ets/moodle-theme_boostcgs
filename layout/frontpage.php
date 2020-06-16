@@ -49,8 +49,9 @@ $mainbottomblockshtml = $OUTPUT->blocks('fp-main-bottom');
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+$context = context_course::instance(SITEID);
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+    'sitename' => format_string($SITE->shortname, true, ['context' => $context, "escape" => false]),
     'output' => $OUTPUT,
     'fpmaintopblocks' => $maintopblockshtml,
     'hasmaintopblocks' => $hasmaintopblocks,
@@ -70,4 +71,3 @@ $templatecontext = [
 ];
 
 echo $OUTPUT->render_from_template('theme_boost/frontpage', $templatecontext);
-
