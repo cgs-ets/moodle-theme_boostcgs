@@ -1,0 +1,32 @@
+#page-mod-glossary-print #page {
+    margin: 0;
+}
+#page-mod-glossary-print .displayprinticon {
+    display: none;
+}
+#page-mod-glossary-print .sitename {
+    display: none;
+}
+#page-mod-glossary-print .coursename {
+    visibility: hidden;
+}
+#page-mod-glossary-print .coursename span.strong {
+    visibility: visible;
+    float: left;
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+#page-mod-glossary-print .modname {
+    visibility: hidden;
+    overflow: hidden;
+    clear: both;
+}
+#page-mod-glossary-print .modname span.strong {
+    visibility: visible;
+    float: left;
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.5;
+    clear: both;
+}
