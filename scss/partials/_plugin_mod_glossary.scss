@@ -13,7 +13,7 @@
 #page-mod-glossary-print .coursename span.strong {
     visibility: visible;
     float: left;
-    font-size: 1.875rem;
+    font-size: 2.34375rem;
     font-weight: 600;
     line-height: 1.5;
 }
@@ -29,4 +29,10 @@
     font-weight: 600;
     line-height: 1.5;
     clear: both;
+    margin-bottom: 20px;
+}
+#page-mod-glossary-print .mdl-align.strong {
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
 }
