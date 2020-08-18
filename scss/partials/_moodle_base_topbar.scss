@@ -8,6 +8,9 @@ nav.navbar {
     height: $navbar-height;
     @media only screen and (min-width: $show-cgs-connect-width) {
         background-image: url([[pix:theme_boostcgs|moodle-banner]]);
+        .navbar-brand {
+            width: 500px;
+        }
     }
     &.navbar-dark {
     	.navbar-nav .nav-link {
