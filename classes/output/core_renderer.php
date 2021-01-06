@@ -50,8 +50,8 @@ class core_renderer extends \core_renderer {
             $campusroles = strtolower($USER->profile['CampusRoles']);
 
             $roles = array(
-                'staff' => 'staff', 
-                'student' => 'student', 
+                'staff' => 'staff',
+                'student' => 'student',
                 'parent' => 'parent',
             );
             foreach ($roles as $role => $class) {
@@ -61,12 +61,10 @@ class core_renderer extends \core_renderer {
             }
 
             $campuses = array(
-                'early learning centre' => 'elc', 
-                'southside' => 'southside', 
-                'northside' => 'northside', 
-                'junior school' => 'junior',
+                'early learning centre' => 'elc',
+                'northside' => 'northside',
                 'senior school' => 'senior',
-                'primary school' => 'primary',
+                'primary red hill' => 'primary',
                 'whole school' => 'whole',
             );
             foreach ($campuses as $campus => $class) {
