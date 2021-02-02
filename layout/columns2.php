@@ -47,6 +47,8 @@ $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 
+$iscourseparticipation = (strpos($bodyattributes, 'path-report-participation') !== false);
+
 $nav = $PAGE->flatnav;
 
 $templatecontext = [
@@ -64,6 +66,7 @@ $templatecontext = [
     'showenv' => $theme->settings->showenvbar,
     'env' => strtolower(str_replace(' ', '-', $theme->settings->environment)),
     'envcolor' => $theme->settings->environmentcolor,
+    'iscourseparticipation' => $iscourseparticipation,
 ];
 
 echo $OUTPUT->render_from_template('theme_boost/columns2', $templatecontext);
