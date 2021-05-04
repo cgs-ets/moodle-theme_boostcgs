@@ -110,7 +110,56 @@ function theme_boostcgs_update_settings_images($settingname) {
  * @param moodle_page $page
  */
 function theme_boostcgs_page_init(moodle_page $page) {
+    // Hooks.
+    // A convenient time in the page loading process to run global hooks.
+    run_global_hook_actions($page);
+
     // A good place to add external fonts, js and css for the theme.
     $page->requires->css( new moodle_url('/theme/boostcgs/vendor/google-fonts/open-sans/open_sans-300.400.500.600.700.css') );
     $page->requires->css( new moodle_url('/theme/boostcgs/vendor/ionicons-2.0.1/css/ionicons.min.css') );
+}
+
+/**
+ * Register global hook actions.
+ * @param moodle_page $page
+ */
+function run_global_hook_actions(moodle_page $page) {
+    global $USER, $DB;
+
+    // Redirect course profile pages to global profile pages.
+    redirect_course_profile($page);
+    
+    // Check whether user is allowed to view this profile.
+    check_profile_access($page);
+}
+
+/**
+ * Hook action: Redirect course profile pages to global profile pages.
+ * @param moodle_page $page
+ */
+function redirect_course_profile(moodle_page $page) {
+    if ($page->url->get_path() == '/user/view.php') {
+        $userid = $page->url->get_param('id');
+        $globalprofile = new moodle_url('/user/profile.php', array(
+            'id' => $userid,
+        ));
+        redirect($globalprofile->out(false));
+        exit;
+    }
+}
+
+/**
+ * Hook action: Check whether user is allowed to view this profile.
+ * @param moodle_page $page
+ */
+function check_profile_access(moodle_page $page) {
+    global $USER, $DB;
+
+    if ($page->url->get_path() == '/user/profile.php') {
+        // User is accessing their own profile.
+        // User is a staff member at CGS.
+        // User is a mentor of the profile user.
+        
+        // Else, redirect.
+    }
 }
