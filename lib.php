@@ -182,7 +182,7 @@ function check_profile_access(moodle_page $page) {
             'contextlevel' => CONTEXT_USER
         );
         if ($mentees = $DB->get_records_sql($menteessql, $menteesparams)) {
-            $menteeids = array_column($mentees, 'userids');
+            $menteeids = array_column($mentees, 'id');
         }
         if (in_array($page->url->get_param('id'), $menteeids)) {
             return true;
