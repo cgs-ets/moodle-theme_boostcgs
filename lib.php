@@ -196,10 +196,3 @@ function check_profile_access(moodle_page $page) {
         exit;
     }
 }
-
-public static function get_users_mentees($userid) {
-        global $DB;
-
-        
-        return $mentees;
-    }
