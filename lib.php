@@ -156,10 +156,50 @@ function check_profile_access(moodle_page $page) {
     global $USER, $DB;
 
     if ($page->url->get_path() == '/user/profile.php') {
+
         // User is accessing their own profile.
+        if ($page->url->get_param('id') == $USER->id) {
+            return true;
+        }
+
         // User is a staff member at CGS.
+        profile_load_custom_fields($USER);
+        $campusroles = strtolower($USER->profile['CampusRoles']);
+        if (strpos($campusroles, 'staff') !== false) {
+            return true;
+        }
+
         // User is a mentor of the profile user.
-        
+        $mentees = array();
+        $menteessql = "SELECT u.id
+                         FROM {role_assignments} ra, {context} c, {user} u
+                        WHERE ra.userid = :mentorid
+                          AND ra.contextid = c.id
+                          AND c.instanceid = u.id
+                          AND c.contextlevel = :contextlevel";     
+        $menteesparams = array(
+            'mentorid' => $USER->id,
+            'contextlevel' => CONTEXT_USER
+        );
+        if ($mentees = $DB->get_records_sql($menteessql, $menteesparams)) {
+            $menteeids = array_column($mentees, 'userids');
+        }
+        if (in_array($page->url->get_param('id'), $menteeids)) {
+            return true;
+        }
+
         // Else, redirect.
+        $profileurl = new moodle_url('/user/profile.php', array(
+            'id' => $USER->id,
+        ));
+        redirect($profileurl->out(false));
+        exit;
     }
 }
+
+public static function get_users_mentees($userid) {
+        global $DB;
+
+        
+        return $mentees;
+    }
