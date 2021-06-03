@@ -116,22 +116,21 @@ class core_renderer extends \core_renderer {
         $header->pageheadingbutton = $this->page_heading_button();
         $header->selfenrolbutton = $this->self_enrol_button();
 
-      //  var_export($header->selfenrolbutton); exit;
-
         $profileuser = '';
         if ($PAGE->pagetype === "user-profile") {
            $profileuser = $DB->get_record('user', ['id' => $PAGE->url->get_param('id')]);
            profile_load_custom_fields($profileuser);
         }
-        if (isset($profileuser->username)) {
+        $header->showstudentdashboard = 0;
+        if (isset($profileuser->username) && isset($theme->settings->studentdashboardurl)) {
             $header->studentdashboard = get_string('studentdashboard', 'theme_boostcgs');
             $theme = \theme_config::load('boostcgs');
             $url = str_replace('[username]', $profileuser->username, $theme->settings->studentdashboardurl);
             $header->studentdashboardurl = $url;
-        }
-        if ($PAGE->pagetype == "user-profile" && (strpos(strtolower($USER->profile['CampusRoles']), 'staff'))
-                && strpos(strtolower($profileuser->profile['CampusRoles']), 'students')) {
-            $header->showstudentdashboard = 1;
+            if ($PAGE->pagetype == "user-profile" && (strpos(strtolower($USER->profile['CampusRoles']), 'staff'))
+                    && strpos(strtolower($profileuser->profile['CampusRoles']), 'students')) {
+                $header->showstudentdashboard = 1;
+            }
         }
 
         return $this->render_from_template('theme_boost/full_header', $header);
