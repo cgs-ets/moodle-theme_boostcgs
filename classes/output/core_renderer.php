@@ -129,10 +129,10 @@ class core_renderer extends \core_renderer {
             $theme = \theme_config::load('boostcgs');
             $url = str_replace('[username]', $profileuser->username, $theme->settings->studentdashboardurl);
             $header->studentdashboardurl = $url;
-            if ($PAGE->pagetype == "user-profile" && (strpos(strtolower($USER->profile['CampusRoles']), 'staff'))
-                    && strpos(strtolower($profileuser->profile['CampusRoles']), 'students')) {
-                $header->showstudentdashboard = 1;
-            }
+        }
+        if ($PAGE->pagetype == "user-profile" && (strpos(strtolower($USER->profile['CampusRoles']), 'staff'))
+                && strpos(strtolower($profileuser->profile['CampusRoles']), 'students')) {
+            $header->showstudentdashboard = 1;
         }
 
         return $this->render_from_template('theme_boost/full_header', $header);
