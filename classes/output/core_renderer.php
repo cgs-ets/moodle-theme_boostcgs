@@ -123,8 +123,7 @@ class core_renderer extends \core_renderer {
            $profileuser = $DB->get_record('user', ['id' => $PAGE->url->get_param('id')]);
            profile_load_custom_fields($profileuser);
         }
-        $header->showstudentdashboard = 0;
-        if (isset($profileuser->username) && isset($theme->settings->studentdashboardurl)) {
+        if (isset($profileuser->username)) {
             $header->studentdashboard = get_string('studentdashboard', 'theme_boostcgs');
             $theme = \theme_config::load('boostcgs');
             $url = str_replace('[username]', $profileuser->username, $theme->settings->studentdashboardurl);
