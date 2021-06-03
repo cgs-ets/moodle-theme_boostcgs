@@ -162,6 +162,11 @@ function check_profile_access(moodle_page $page) {
             return true;
         }
 
+        // User is a moodle admin.
+        if (has_capability('moodle/site:config', \context_user::instance($USER->id))) {
+            return true;
+        }
+
         // User is a staff member at CGS.
         profile_load_custom_fields($USER);
         $campusroles = strtolower($USER->profile['CampusRoles']);
@@ -183,9 +188,9 @@ function check_profile_access(moodle_page $page) {
         );
         if ($mentees = $DB->get_records_sql($menteessql, $menteesparams)) {
             $menteeids = array_column($mentees, 'id');
-        }
-        if (in_array($page->url->get_param('id'), $menteeids)) {
-            return true;
+            if (in_array($page->url->get_param('id'), $menteeids)) {
+                return true;
+            }
         }
 
         // Else, redirect.
