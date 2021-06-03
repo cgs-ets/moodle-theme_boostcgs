@@ -116,10 +116,10 @@ class core_renderer extends \core_renderer {
         $header->pageheadingbutton = $this->page_heading_button();
         $header->selfenrolbutton = $this->self_enrol_button();
 
-        //var_export($header->selfenrolbutton); exit;
+      //  var_export($header->selfenrolbutton); exit;
 
         $profileuser = '';
-        if ($PAGE->pagetype === "course-view-tiles") {
+        if ($PAGE->pagetype === "user-profile") {
            $profileuser = $DB->get_record('user', ['id' => $PAGE->url->get_param('id')]);
            profile_load_custom_fields($profileuser);
         }
@@ -129,7 +129,7 @@ class core_renderer extends \core_renderer {
             $url = str_replace('[username]', $profileuser->username, $theme->settings->studentdashboardurl);
             $header->studentdahsboardurl = $url;
         }
-        if ($PAGE->pagetype == "course-view-tiles" && (strpos(strtolower($USER->profile['CampusRoles']), 'staff'))
+        if ($PAGE->pagetype == "user-profile" && (strpos(strtolower($USER->profile['CampusRoles']), 'staff'))
                 && strpos(strtolower($profileuser->profile['CampusRoles']), 'students')) {
             $header->showstudentdashboard = 1;
         }
