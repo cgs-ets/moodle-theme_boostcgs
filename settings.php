@@ -116,9 +116,15 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     // Student Dashboard URL Setting.
-    $setting = new admin_setting_configtext('theme_boostcgs/studentdashboardurl', get_string('studentdashboard', 'theme_boostcgs'),
+    //Senior
+    $setting = new admin_setting_configtext('theme_boostcgs/studentdashboardurlsenior', get_string('studentdashboardsenior', 'theme_boostcgs'),
             get_string('studentdashboard_desc', 'theme_boostcgs'), '', PARAM_RAW);
     $page->add($setting);
+    // Primary
+    $setting = new admin_setting_configtext('theme_boostcgs/studentdashboardurlprimary', get_string('studentdashboardprimary', 'theme_boostcgs'),
+            get_string('studentdashboard_desc', 'theme_boostcgs'), '', PARAM_RAW);
+    $page->add($setting);
+    
 
     // Server environment. default production.
     $name = 'theme_boostcgs/environment';

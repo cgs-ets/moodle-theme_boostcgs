@@ -124,10 +124,19 @@ class core_renderer extends \core_renderer {
 
         $theme = \theme_config::load('boostcgs');
         $header->showstudentdashboard = 0;
-        if (isset($profileuser->username) && isset($theme->settings->studentdashboardurl)) {
+        if (isset($profileuser->username) 
+            && (isset($theme->settings->studentdashboardurlsenior) || isset($theme->settings->studentdashboardurlprimary))) {
+            // check campus to show the right url
+            $primary = is_numeric(strpos($profileuser->profile['CampusRoles'], 'Primary'));
+            if ($primary) {
+                $url = str_replace('[username]', $profileuser->username, $theme->settings->studentdashboardurlprimary);
+            } else {
+                $url = str_replace('[username]', $profileuser->username, $theme->settings->studentdashboardurlsenior);
+            }
             $header->studentdashboard = get_string('studentdashboard', 'theme_boostcgs');
-            $url = str_replace('[username]', $profileuser->username, $theme->settings->studentdashboardurl);
+          
             $header->studentdashboardurl = $url;
+            
             if ($PAGE->pagetype == "user-profile" && (strpos(strtolower($USER->profile['CampusRoles']), 'staff'))
                     && strpos(strtolower($profileuser->profile['CampusRoles']), 'students')) {
                 $header->showstudentdashboard = 1;

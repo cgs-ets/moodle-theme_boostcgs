@@ -65,6 +65,8 @@ $string['loginbackgroundimage'] = 'Login page background image';
 // Background image for login page.                                                                                                 
 $string['loginbackgroundimage_desc'] = 'An image that will be stretched to fill the background of the login page.';
 $string['studentdashboard'] = 'Dashboard';
+$string['studentdashboardsenior'] = 'Dashboard (Senior)';
+$string['studentdashboardprimary'] = 'Dashboard (Primary)';
 $string['studentdashboard_desc'] = 'Set student dashboard URL';
 $string['environment'] = 'Environment';
 $string['environment_desc'] = 'This will be added as a class to the body element.';
